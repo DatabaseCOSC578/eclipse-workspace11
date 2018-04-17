@@ -1,0 +1,38 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class Dao {
+
+	public String login_authentication(Connection con, LoginDetails ld) {
+		if((ld.getUsername().equals("user"))&&(ld.getPassword().equals("password")))
+				{
+		return "Valid";
+				}
+		else
+			return "Invalid UserName/Password";
+		
+	}
+	public int store_details(Connection con, Store sd) {
+		int v=99,zero = 0;
+		try {
+			
+	
+	      String query = "insert into supervision.items(email,fname,lname,items,isreturn,supplyd,returnd)"
+	        + "values ('"+sd.getEmail()+"','"+sd.getFname()+"','"+sd.getLname()+"','"+sd.getItems()+"','"+zero+"','"+sd.getSdate()+"','"+sd.getRdate()+"')";
+
+      PreparedStatement preparedStmt = con.prepareStatement(query);
+      v=preparedStmt.executeUpdate(query);
+     
+	}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return v;	
+		}
+	public Store retrieve_details(Connection con) {
+		
+	
+		
+		return null;
+	}
+}

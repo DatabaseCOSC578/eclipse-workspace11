@@ -1,0 +1,72 @@
+package cosc57;
+
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+
+
+/**
+ * Servlet implementation class FacultyDetails
+ */
+@WebServlet("/FacultyDetails")
+public class FacultyDetails extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FacultyDetails() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		  // TODO Auto-generated method stub
+		  
+		Object newInstance;
+        newInstance = Class.forName("com.mysql.jdbc.Driver").newInstance();
+        connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cosc578", userName, password);// Please use your database name here
+        
+        PreparedStatement updateStaff;
+        Statement queryStatement = connection.createStatement();
+        updateStaff = null;
+            String querys="select * from cosc578.Programs;"; //your db 
+            ResultSet results = queryStatement.executeQuery(querys);
+            while(results.next())
+            {
+                System.out.print(results.getString("prog_id"));
+                System.out.print("    ");
+                System.out.print(results.getString("prog_name"));
+                System.out.println();
+            }   
+//            querys="UPDATE shongdb.staff SET salary = 8802 WHERE staffNo = 'SA9';";
+//            updateStaff = connection.prepareStatement(querys);
+//            updateStaff.executeUpdate();
+//            
+        
+		 }
+}
+
+

@@ -1,0 +1,25 @@
+import java.sql.Connection;
+
+public class Dao {
+
+	public String login_authentication(Connection con, LoginDetails ld) {
+		if((ld.getUsername().equals("user"))&&(ld.getPassword().equals("password")))
+				{
+		return "Valid";
+				}
+		else
+			return "Invalid UserName/Password";
+		
+	}
+	public String store_details(Connection con, Store sd) {
+		return"";
+		
+		
+	}
+	public Store retrieve_details(Connection con) {
+		
+		return null;
+		
+		
+	}
+}

@@ -1,0 +1,56 @@
+<html>
+<head>
+    <link href="css/layout1.css" rel="stylesheet">
+    <head>
+    <script type='text/javascript'>
+        function addFields(){
+            // Number of inputs to create
+            var number = document.getElementById("member").value;
+            // Container <div> where dynamic content will be placed
+            var container = document.getElementById("container");
+            // Clear previous contents of the container
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<number;i++){
+                // Append a node with a random text
+                container.appendChild(document.createTextNode("Member " + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "member" + i;
+                container.appendChild(input);
+                // Append a line break 
+                container.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+</head>
+</head>
+<body>
+<header><center>Towson University</center></header>
+<form name="inputdetails" action="store" method="post" id="form1">
+<div><b>Details</b> 
+
+
+<button id ="b1" type="submit" formaction="Supervisorshow.jsp">View Details</button>
+
+
+</div>
+<fieldset>
+<center>
+<b>First Name:</b> <input type=text style="width: 200px;" name="fname " placeholder="firstname"><br><br>
+<b>Last Name:</b> <input type=text style="width: 200px;" name="lname " placeholder="lastname"><br><br>
+<b>Email:</b><input type=text style="width: 300px; align:center;" name="email" placeholder="Email "><br><br>
+<b>Items:</b></br>
+ <input type="text" id="member" name="member" value="">Number of members: (max. 10)<br />
+    <a href="#" id="filldetails" onclick="addFields()">Fill Details</a>
+    <div id="container"/>
+Supplied date<input type=text name="sdate" placeholder="Supply Date" ><br><br>
+Return date<input type=text name="rdate" placeholder="Return Date" ><br><br>
+<input type=submit value=submit> <br><br><br><br><br>
+</center></fieldset>
+</form>
+</body>
+<footer> &copy 2018 - Towson University</footer>
+</html>

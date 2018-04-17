@@ -1,0 +1,76 @@
+package cosc57;
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Connect_Request {
+ 
+ static final String userName="root";//put your MySQL user name
+    static final String password="root";//put your MySQL password
+    private static Connection connection=null;
+   
+    public  Connection  getconnection() throws  SQLException {
+        
+    	 Connection con=null;
+    	 
+    	 try{
+    		 Class.forName
+    		
+    		("com.mysql.jdbc.Driver");
+    		con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cosc578","root", "root");
+    		System.out.println("Connection Object"+con);
+   
+    }
+    catch(Exception e){
+    e.printStackTrace();	
+    }
+    return con;
+    	}
+    	public static void closeConnection(Connection con)  {
+    try{
+    		if (con != null)
+    			
+    			con.close();
+    System.out.println("CLOSED");
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    		}
+    }
+        
+    }
+ 
+
+
+
+
+//
+//<?xml version="1.0" encoding="UTF-8"?>
+//<element>
+//<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+//  <display-name>Application Name </display-name>
+//  <welcome-file-list>
+//    <welcome-file>New.jsp</welcome-file>
+//  </welcome-file-list>
+//  
+//  
+//  <servlet>
+//    <description></description>
+//    <servlet-name>Faculty</servlet-name>
+//    <servlet-class>cosc57.FacultyDetails</servlet-class>
+//  </servlet>
+//  
+//  <servlet-mapping>
+//    <servlet-name>Faculty</servlet-name>
+//    <url-pattern>/FacultyDetails</url-pattern>
+//  </servlet-mapping>
+//
+//  
+//</web-app>
+//</element>

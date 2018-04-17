@@ -1,0 +1,25 @@
+<html>
+<head>
+    <link href="css/layout1.css" rel="stylesheet">
+</head>
+<body>
+<header>Towson university</header>
+<form name="inputdetails" action="store" method="post" id="form1">
+<p>Details</p>
+<fieldset>
+<p id="abc" style="align=center">
+CustId: <input type=text style="width: 200px;" name="custid " placeholder="customer ID"><br><br>
+CustName:<input type=text style="width: 300px; " name="custname" placeholder="customer name "><br><br>
+Items:<br/>
+<textarea rows="5" cols="60"  maxlength="260" name="items" placeholder="Please enter Items List">
+</textarea> <br><br>
+<input type=checkbox name="return" value=1>return<br><br>
+Supplied date<input type=text name="sdate" placeholder="Supply Date" ><br><br>
+Returned date<input type=text name="rdate" placeholder="Return Date" ><br><br>
+<input type=submit value=submit> <br><br><br><br><br>
+</p >
+</fieldset>
+</form>
+</body>
+<footer> &copy 2018 - Towson University</footer>
+</html>

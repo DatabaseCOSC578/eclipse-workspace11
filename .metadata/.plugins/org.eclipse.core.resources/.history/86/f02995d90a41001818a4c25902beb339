@@ -1,0 +1,44 @@
+import java.sql.Connection;
+
+public class Dao {
+
+	public String login_authentication(Connection con, LoginDetails ld) {
+		if((ld.getUsername().equals("user"))&&(ld.getPassword().equals("password")))
+				{
+		return "Valid";
+				}
+		else
+			return "Invalid UserName/Password";
+		
+	}
+	public String store_details(Connection con, Store sd) {
+//		java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+
+	      // the mysql insert statement
+	      String query = " insert into users (first_name, last_name, date_created, is_admin, num_points)"
+	        + " values (?, ?, ?, ?, ?)";
+//
+//	      // create the mysql insert preparedstatement
+//	      PreparedStatement preparedStmt = conn.prepareStatement(query);
+//	      preparedStmt.setString (1, "Barney");
+//	      preparedStmt.setString (2, "Rubble");
+//	      preparedStmt.setDate   (3, startDate);
+//	      preparedStmt.setBoolean(4, false);
+//	      preparedStmt.setInt    (5, 5000);
+
+	      // execute the preparedstatement
+//	      preparedStmt.execute();
+//	      
+//	      conn.close();
+//		
+//		
+//		
+	      return "";
+	}
+	public Store retrieve_details(Connection con) {
+		
+		return null;
+		
+		
+	}
+}

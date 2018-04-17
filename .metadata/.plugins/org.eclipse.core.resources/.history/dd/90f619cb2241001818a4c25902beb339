@@ -1,0 +1,51 @@
+<html>
+<head>
+    <link href="css/layout1.css" rel="stylesheet">
+</head>
+<body>
+<header><center>Towson University</center></header>
+<form name="inputdetails" action="store" method="post" id="form1">
+<div><b>Details</b> 
+
+
+<button id ="b1" type="submit" formaction="Supervisorshow.jsp">View Details</button>
+
+
+</div>
+<fieldset>
+
+<TABLE  BORDER="5">
+   <TR>
+      <TD>Data 1</TD>
+      <TD>Data 2</TD>
+      <TD>Data 3</TD>
+      <TD>Data 4</TD>
+      <TD>Data 5</TD>
+      <TD>Data 6</TD>
+      <TD>Data 7</TD>
+   </TR>
+</TABLE>
+
+
+
+
+
+
+
+
+
+<b>First Name:</b> <input type=text style="width: 200px;" name="fname "> <b>Last Name:</b> <input type=text style="width: 200px;" name="lname " placeholder="lastname"><br><br>
+<b>Email:</b><input type=text style="width: 300px; align:center;" name="custname" placeholder="Email "><br><br>
+<b>Items:</b></br>
+<textarea rows="5" cols="60"  maxlength="260" name="items" placeholder="Please enter Items List">
+</textarea> <br><br>
+
+Supplied date<input type=text name="sdate" placeholder="Supply Date" ><br><br>
+Return date<input type=text name="rdate" placeholder="Return Date" ><br><br>
+<input type="checkbox" name="return" value="1"> Return<br>
+<input type=submit value=submit> <br><br><br><br><br>
+</fieldset>
+</form>
+</body>
+<footer> &copy 2018 - Towson University</footer>
+</html>

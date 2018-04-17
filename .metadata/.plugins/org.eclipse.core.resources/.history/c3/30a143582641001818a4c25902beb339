@@ -1,0 +1,65 @@
+<html>
+
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.CallableStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="javax.servlet.http.HttpSession"%><head>
+    <link href="css/layout1.css" rel="stylesheet">
+</head>
+
+
+<%
+Database db=new Database();
+Connection con1=db.getconnection();
+Store dt=new Store();	
+PreparedStatement ps;
+ps = con1.prepareStatement("select * from items ");
+ResultSet rs;
+
+rs = ps.executeQuery();
+System.out.println(rs.getRow());
+rs.beforeFirst();
+		while(rs.next()) {
+		System.out.println(rs+"HERE"+rs.getString(1));
+
+%>
+
+
+
+
+<body>
+<header><center>Towson University</center></header>
+<form name="inputdetails" method="post" id="form1">
+<div><b>Details</b> 
+<button id ="b1" type="submit" formaction="Supervisor.jsp">Enter Details</button>
+</div>
+<fieldset>
+<TABLE  BORDER="3" colspan="2"  WIDTH="100%"   CELLPADDING="8" CELLSPACING="5">
+   <TR>
+      <TD><b>FirstName</b></TD>
+      <TD><b>Last Name</b></TD>
+      <TD><b>Email Id</b></TD>
+      <TD><b>Items</b></TD>
+      <TD><b>SupplyDate</b></TD>
+      <TD><b>Return Date</b></TD>
+      <TD><b>is Returned</b> </TD>
+   </TR>
+</TABLE>
+
+<b>First Name:</b> <input type=text style="width: 200px;" name="fname "> <b>Last Name:</b> <input type=text style="width: 200px;" name="lname " placeholder="lastname"><br><br>
+<b>Email:</b><input type=text style="width: 300px; align:center;" name="custname" placeholder="Email "><br><br>
+<b>Items:</b></br>
+<textarea rows="5" cols="60"  maxlength="260" name="items" placeholder="Please enter Items List">
+</textarea> <br><br>
+
+Supplied date<input type=text name="sdate" placeholder="Supply Date" ><br><br>
+Return date<input type=text name="rdate" placeholder="Return Date" ><br><br>
+<input type="checkbox" name="return" value="1"> Return<br>
+<input type=submit value=submit> <br><br><br><br><br>
+</fieldset>
+</form>
+</body>
+<footer> &copy 2018 - Towson University</footer>
+</html>

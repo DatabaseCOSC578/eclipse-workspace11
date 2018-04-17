@@ -1,0 +1,48 @@
+package cosc57;
+
+import java.sql.*;
+
+public class Connect_Request {
+ 
+ static final String userName="root";//put your MySQL user name
+    static final String password="root";//put your MySQL password
+    private static Connection connection=null;
+    /**
+     * @param args the command line arguments
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.lang.InstantiationException
+     * @throws java.lang.IllegalAccessException
+     * @throws java.sql.SQLException
+     */
+    public  Connection getconnection() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+        
+        Object newInstance;
+        newInstance = Class.forName("com.mysql.jdbc.Driver").newInstance();
+        connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cosc578", userName, password);// Please use your database name here
+        
+        PreparedStatement updateStaff;
+        Statement queryStatement = connection.createStatement();
+        updateStaff = null;
+            String querys="select * from cosc578.Programs;"; //your db 
+            ResultSet results = queryStatement.executeQuery(querys);
+            while(results.next())
+            {
+                System.out.print(results.getString("prog_id"));
+                System.out.print("    ");
+                System.out.print(results.getString("prog_name"));
+                System.out.println();
+            }   
+//            querys="UPDATE shongdb.staff SET salary = 8802 WHERE staffNo = 'SA9';";
+//            updateStaff = connection.prepareStatement(querys);
+//            updateStaff.executeUpdate();
+//            
+        
+        
+        // TODO code application logic here
+    }
+    
+
+       // TODO code application logic here
+    }
+ 
+}

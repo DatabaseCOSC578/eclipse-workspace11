@@ -1,0 +1,75 @@
+package cosc57;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+/**
+ * Servlet implementation class FacultyDetails
+ */
+@WebServlet("/FacultyDetails")
+public class FacultyDetails extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FacultyDetails() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		  // TODO Auto-generated method stub
+		  
+		   PrintWriter pw = response.getWriter(); 
+		         response.setContentType("text/html"); 
+		          
+		         Connection con=null;
+		          
+
+		     try{  
+		       
+		       System.out.println("Connected!\n");
+		      String query="select * from Faculty";
+		      PreparedStatement ps = (PreparedStatement) con.prepareStatement(query);  
+		       ResultSet rs=ps.executeQuery(query);
+		       pw.println("Data as per request:\n");
+		       while(rs.next())
+		       {
+		       pw.println(rs.getString(1));
+		       }
+		     }  
+		     catch (Exception e){  
+		       pw.println(e);  
+		     }
+		     if(pw.checkError()==false)
+		  {
+		   pw.println(" <input type=\"button\"  value=\"Check Database\"  onClick=\"window.location.href('Database contents.jsp')\"> ");
+		  }
+		     
+
+		 }  
+		   
+		  
+		 }
+
+}

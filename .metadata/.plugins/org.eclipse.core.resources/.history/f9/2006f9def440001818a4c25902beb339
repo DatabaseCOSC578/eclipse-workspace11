@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Employee Portal</title>
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500,500italic,400italic,700italic,900,900italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link href="css/layout.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css">
+    <script type="text/javascript" src=js/bootstrap-datepicker.min.js></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+      $(function(){
+        $('.datepicker').datepicker({
+          format: "yyyy-mm-dd",
+          todayHighlight: true,
+          clearBtn: true,
+          orientation: "bottom auto"
+        });
+      });
+    </script>
+  </head>
+  <body>
+   <!-- Login wrap Begins Here -->
+    <div class="login">
+
+      <div class="head">
+        <a href="#"><img src="images/towsonu-logo.png" title="Login" /></a>
+        <h2>Login</h2>
+      </div>  
+
+
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="login">
+          <form name="myform" action="login" method="post">
+            <div class="form-group required">
+              <label for="">User Name</label>
+              <input type="email" class="form-control" name="username" required="required">
+            </div>  
+            <div class="form-group required">
+              <label for="">Password</label>
+              <input type="password" class="form-control" name="password" required="required">
+            </div>
+            <button class="btn btn-brand-blue btn-md btn-block mt30">Login</button>
+          </form
+          >
+        </div>
+
+
+      </div>
+
+
+    </div><!-- Login wrap Ends Here -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.file-input.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/custom-js.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $("#signup_tab").click(function(){
+              $(".login").addClass("toggle");
+          });
+          $("#login_tab").click(function(){
+              $(".login").removeClass("toggle");
+          });
+
+          /*$("#signup_tab").click(function(){
+              $(".login").css({"width":"80%","transition":"1s"});
+          });
+          $("#login_tab").click(function(){
+              $(".login").css("width","350px");
+          });*/
+      });
+   
+      
+      
+      </script>
+	<script type="text/javascript" src=js/bootstrap-datepicker.js></script>
+  </body>
+</html>
